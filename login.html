@@ -12,33 +12,26 @@
 <body>
 
     <div class="container-fluid">
-        <div class="container w-50 mt-4 p-4">
+        <div class="container w-50 mt-5 p-4 bg-secondary">
 
-            <form id="regform ">
-                     
-                <h1>Sign up</h1>
-                  <div class="mb-3 mt-3">
-                    <label for="username" class="form-label fw-bold">Name</label>
-                    <input type="text" class="form-control" id="username">
-                </div>
+            <form id="loginform ">
+             
+                <h1>Sign In</h1>
 
-                  <div class="mb-3">
-                    <label for="usercontact" class="form-label fw-bold">Contact</label>
-                    <input type="number" class="form-control" id="usercontact">
-                </div>
-
-                <div class="mb-3">
+                <div class="mb-3 mt-3">
                     <label for="exampleInputEmail1" class="form-label fw-bold">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" class="form-control w-75" id="loginEmail" aria-describedby="emailHelp">
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label fw-bold">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" class="form-control w-75" id="loginPassword">
                 </div>
                
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <p class="mt-3">Already have an account <a href="login.html">login your account</a></p>
+                <p>Don't have an account <a href="index.html">Sign up</a></p>
+
+                <button id="logout-btn" class="p-2 rounded-2">Logout</button>
             </form>
 
         </div>

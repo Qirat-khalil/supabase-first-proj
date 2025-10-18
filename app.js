@@ -6,9 +6,6 @@ let supaemail = document.getElementById("exampleInputEmail1")
 let supapass = document.getElementById("exampleInputPassword1")
 let regform = document.getElementById("regform")
 
-
-
-
 // async function signup(e) {
 //     e.preventDefault();
 
@@ -49,7 +46,7 @@ let regform = document.getElementById("regform")
 // regform.addEventListener("submit", signup);
 
 
-regform.addEventListener("submit", async (e) =>{
+regform && regform.addEventListener("submit", async (e) => {
     e.preventDefault()
     try {
 
@@ -85,3 +82,55 @@ regform.addEventListener("submit", async (e) =>{
 
     }
 })
+
+
+
+
+// login form 
+
+
+let loginEmail = document.getElementById("loginEmail")
+let loginform = document.getElementById("loginform")
+let loginPassword = document.getElementById("loginPassword")
+
+
+async function login(e) {
+    e.preventDefault()
+    try {
+
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email: loginEmail.value,
+            password: loginPassword.value,
+        })
+
+        if (error) {
+            console.log(error);
+            return
+        }else{
+            console.log(data);
+            
+        }
+
+    } catch (err) {
+        console.log(err);
+
+    }
+
+}
+
+loginform && loginform.addEventListener("submit",login)
+
+
+// logout btn
+
+let logoutbtn = document.getElementById("logout-btn")
+
+async function logout(){
+    const { error } = await supabase.auth.signOut()
+    if(error){
+        console.log(error);
+        location.href = 'index.html'
+    }
+}
+
+logoutbtn && logoutbtn.addEventListener("click",logout)
