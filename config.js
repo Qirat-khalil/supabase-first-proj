@@ -8,4 +8,4 @@ let supaKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJl
 const supabase = createClient(supaUrl, supaKey)
 
 
-export default supabase
+export default supabase;

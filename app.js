@@ -70,7 +70,7 @@ regform && regform.addEventListener("submit", async (e) => {
         if (data) {
             console.log(data);
             regform.reset()
-            //  location.href = 'home.html'
+            location.href = 'home.html'
         }
         if (error) {
             console.log(error);
