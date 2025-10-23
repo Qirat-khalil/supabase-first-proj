@@ -108,7 +108,7 @@ async function login(e) {
             return
         }else{
             console.log(data);
-            
+            location.href = "home.html"
         }
 
     } catch (err) {

@@ -4,29 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 
 </head>
 
 <body>
-    <h1>Welcome to home page <span  id="username"></span></h1>
+    <h1 class="mx-auto">Welcome to home page <span id="username"></span></h1>
 
     <div class=" bg-gray-200 p-4 mx-auto flex justify-center mt-8 flex-col w-[600px]">
         <h1 class="text-4xl font-bold text-blue-600 mb-4">cards</h1>
         <label for="title"></label>
         <input type="text" name="" id="title" placeholder="Enter title " class="p-4">
 
-        <textarea name="" id="description" placeholder="enter des"  class="mt-5 p-5"></textarea>
+        <textarea name="" id="description" placeholder="enter des" class="mt-5 p-5"></textarea>
 
-       <div class="mt-5 gap-5">
+        <div class="mt-5 gap-5">
 
-        <input class="mt-5  cursor-pointer p-4" type="radio" name="prio" value="hi">high
-        <input class="mt-5 cursor-pointer p-4" type="radio" name="prio" value="low">low
-        <input class="mt-5 cursor-pointer p-4" type="radio" name="prio" value="med">medium
+            <input class="mt-5  cursor-pointer p-4" type="radio" name="prio" value="hi">high
+            <input class="mt-5 cursor-pointer p-4" type="radio" name="prio" value="low">low
+            <input class="mt-5 cursor-pointer p-4" type="radio" name="prio" value="med">medium
 
-       </div>
-       <button id="addbtn" class="border border-2">Add TAsk</button>
+        </div>
+        <button  id="addbtn" class="border border-2">Add TAsk</button>
+
+        <div id="main"></div>
     </div>
+
+  
 
 
 
