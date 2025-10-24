@@ -201,6 +201,8 @@ addbtn.addEventListener("click", addtodo);
 
 
 // ------------------ Fetch Todos ------------------
+let filtodo = []
+
 async function AllTodos() {
   try {
     const { data, error } = await supabase.from("todos").select("*");
@@ -211,7 +213,9 @@ async function AllTodos() {
     }
 
     if (data) {
-      showAllTodos(data);
+      filtodo=data
+      showAllTodos(filtodo);
+      
     }
   } catch (err) {
     console.log(err);
@@ -244,6 +248,7 @@ function showAllTodos(todos) {
     main.appendChild(card)
   })
 }
+  // delete fun
 
 async function delfunc(id){
    try{
@@ -265,5 +270,37 @@ async function delfunc(id){
 }
 
 
+// search input
 
-// delbtn.addEventListener("click",delfunc)
+
+let searinp = document.getElementById("serinp")
+let searchbtn=document.getElementById("searchbtn")
+
+// console.log(searchbtn ,"searchbtn");
+
+
+function searchfunc() {
+  let keyword = searinp.value.trim().toLowerCase();
+
+  if (!keyword) {
+    alert("Please enter a search keyword!");
+    return;
+  }
+
+  // filter todos where priority OR title matches keyword
+  let filter = filtodo.filter((task) =>
+    task.priority.toLowerCase().includes(keyword) ||
+    task.title.toLowerCase().includes(keyword)
+  );
+
+  // show filtered results on same page
+  showAllTodos(filter);
+
+  // (optional) agar next page par bhejna hai:
+  localStorage.setItem("fildata", JSON.stringify(filter));
+  // location.href = "high.html";
+}
+
+
+searchbtn.addEventListener("click",searchfunc)
+
