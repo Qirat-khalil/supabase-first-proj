@@ -1,50 +1,88 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
 
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
-    <h1 class="mx-auto items-center">Welcome to home page <span id="username"></span></h1>
-       <div>
-<input type="text" placeholder="search task" id="serinp">
-<button id="searchbtn">search</button>
-       </div>
-    <div class=" bg-gray-200 p-4 mx-auto flex justify-center mt-8 flex-col w-[600px]">
-        <h1 class="text-4xl font-bold text-blue-600 mb-4">cards</h1>
-        <label for="title"></label>
-        <input type="text" name="" id="title" placeholder="Enter title " class="p-4">
+<body class="bg-gradient-to-br from-indigo-50 to-purple-100 min-h-screen font-sans">
 
-        <textarea name="" id="description" placeholder="enter des" class="mt-5 p-5"></textarea>
+  <!-- Header -->
+  <header class="text-center mt-5 py-6 bg-white shadow-md">
+    <h1 class="text-3xl md:text-4xl font-extrabold text-indigo-700 tracking-wide">
+      Welcome to Add Task , <span id="username" class="text-pink-600 uppercase"></span>
+    </h1>
+  </header>
 
-        <div class="mt-5 gap-5">
+  <!-- Main Layout -->
+  <main class="flex flex-col md:flex-row gap-10 px-6 py-10 max-w-7xl mx-auto">
 
-            <input class="mt-5  cursor-pointer p-4" type="radio" name="prio" value="hi">high
-            <input class="mt-5 cursor-pointer p-4" type="radio" name="prio" value="low">low
-            <input class="mt-5 cursor-pointer p-4" type="radio" name="prio" value="med">medium
+    <!-- Left: Form Section -->
+    <section
+      class="bg-white shadow-xl rounded-2xl p-6 md:w-[40%] w-full border border-indigo-100 hover:shadow-indigo-200 transition-all duration-300">
+      <h2 class="text-2xl font-semibold text-indigo-700 mb-4 text-center">Add a New Task</h2>
 
-        </div>
-        <button  id="addbtn" class="border border-2">Add TAsk</button>
+      <input id="title" type="text" placeholder="Enter title"
+        class="w-full border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-300 rounded-lg p-3 outline-none mb-4">
 
-        <div id="main"></div>
-    </div>
+      <textarea id="description" placeholder="Enter description"
+        class="w-full border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-300 rounded-lg p-3 h-28 outline-none resize-none mb-4"></textarea>
 
-  
+      <!-- Priority -->
+      <div class="flex justify-around mt-2 text-gray-700 font-medium mb-4">
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="radio" name="prio" value="high" class="accent-red-500">
+          <span>High</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="radio" name="prio" value="medium" class="accent-yellow-500">
+          <span>Medium</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="radio" name="prio" value="low" class="accent-green-500">
+          <span>Low</span>
+        </label>
+      </div>
 
+      <button  id="addbtn"
+        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg">
+        <i class="fas fa-plus"></i> Add Task
+      </button>
+    </section>
 
+    <!-- Right: Task List Section -->
+    <section class="md:w-[60%] w-full">
+      <!-- Search Bar -->
+      <div
+        class="flex items-center gap-2 mb-6 bg-white shadow-md rounded-full px-4 py-2 border border-gray-100 hover:border-indigo-300 transition-all">
+        <input id="serinp" type="text" placeholder="Search task..."
+          class="flex-grow outline-none bg-transparent text-gray-700 placeholder-gray-400 text-sm md:text-base">
+        <button id="searchbtn"
+          class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full transition-all duration-200">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script type="module" src="config.js"></script>
-    <script type="module" src="app.js"></script>
-    <script type="module" src="home.js"></script>
+      <!-- Task List -->
+      <div id="main" class="grid sm:grid-cols-1 md:grid-cols-2 gap-6"></div>
+    </section>
+  </main>
 
+  <!-- Scripts -->
+  <script type="module" src="config.js"></script>
+  <script type="module" src="app.js"></script>
+  <script type="module" src="home.js"></script>
 </body>
 
 </html>
